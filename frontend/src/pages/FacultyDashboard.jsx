@@ -19,7 +19,7 @@ const FacultyDashboard = () => {
   const fetchNotifications = async () => {
     try {
       setLoadingList(true);
-      const res = await fetch(`${API_BASE}/api/notifications/list`);
+      const res = await fetch(`/api/notifications/list`);
       const data = await res.json();
       if (res.ok && data.success) {
         setNotifications(data.notes || []);
