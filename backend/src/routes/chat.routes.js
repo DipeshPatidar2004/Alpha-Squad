@@ -1,31 +1,30 @@
 import express from "express";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
 
 const router = express.Router();
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
 router.post("/", async (req, res) => {
   try {
     const { message } = req.body;
 
-    if (!message) {
-      return res.status(400).json({ error: "Message required" });
-    }
-
-    // ✅ FREE MODEL (ONLY ONE THAT WORKS)
-    const model = genAI.getGenerativeModel({
-      model: "gemini-pro",
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: "You are EduMantra AI Tutor." },
+        { role: "user", content: message },
+      ],
     });
 
-    const result = await model.generateContent(message);
-    const response = await result.response;
-    const text = response.text();
-
-    res.json({ reply: text });
+    res.json({
+      reply: completion.choices[0].message.content,
+    });
   } catch (err) {
-    console.error("GEMINI ERROR =>", err);
-    res.status(500).json({ error: "Gemini failed" });
+    console.error(err);
+    res.status(500).json({ message: "AI failed" });
   }
 });
 
