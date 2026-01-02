@@ -11,7 +11,7 @@ export default function TeacherAttendance() {
 
     try {
       const res = await fetch(
-        "http://localhost:4000/api/attendance/start",
+        "/api/attendance/start",
         {
           method: "POST",
           headers: {
