@@ -1,0 +1,56 @@
+@import "tailwindcss";
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background: #0b132b;
+  border-bottom: 1px solid #1f2a44;
+}
+
+.logo {
+  color: #4ef1c7;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: #4ef1c7;
+}
+
+/* Auth buttons */
+.btn-outline {
+  padding: 6px 14px;
+  border: 1px solid #4ef1c7;
+  border-radius: 20px;
+}
+
+.btn-filled {
+  padding: 6px 16px;
+  background: #4ef1c7;
+  color: #0b132b !important;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Center pages like login */
+.page-center {
+  padding: 100px;
+  text-align: center;
+  color: white;
+}
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #020617; /* slate-950 */
+}
