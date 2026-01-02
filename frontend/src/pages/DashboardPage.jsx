@@ -17,7 +17,7 @@ const DashboardPage = () => {
         setLoadingNotes(true);
         setError("");
 
-        const res = await fetch(`${API_BASE}/api/notifications/list`);
+        const res = await fetch(`/api/notifications/list`);
         const data = await res.json();
 
         if (!res.ok || !data.success) {
