@@ -24,7 +24,7 @@ const AddClassSchedule = () => {
     try {
       setLoading(true);
 
-      const res = await fetch(`${API_BASE}/api/class-schedule/add`, {
+      const res = await fetch(`/api/class-schedule/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
