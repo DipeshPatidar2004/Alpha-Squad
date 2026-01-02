@@ -16,7 +16,7 @@ import CampusCalendarPage from "./pages/CampusCalendarPage";
 import GamificationPage from "./pages/GamificationPage";
 import TeacherAttendance from "./pages/TeacherAttendance";
 import StudentAttendance from "./pages/StudentAttendance";
-import ChatbotPage from "./pages/ChatbotPage";
+import ChatbotPage from "./pages/ChatBotPage";
 import AddClassSchedule from "./pages/AddClassSchedule";
 import StudentPerformance from "./pages/StudentPerformance";
 import MySchedule from "./pages/MySchedule";
