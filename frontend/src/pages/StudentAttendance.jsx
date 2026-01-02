@@ -14,7 +14,7 @@ export default function StudentAttendance() {
 
     try {
       const res = await fetch(
-        "http://localhost:4000/api/attendance/mark",
+        "/api/attendance/mark",
         {
           method: "POST",
           headers: {
