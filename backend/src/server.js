@@ -24,7 +24,57 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // 🔹 Security & middlewares
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://www.gstatic.com",
+          "https://apis.google.com",
+        ],
+
+        connectSrc: [
+          "'self'",
+          "https://identitytoolkit.googleapis.com",
+          "https://securetoken.googleapis.com",
+          "https://www.googleapis.com",
+          "https://firestore.googleapis.com",
+          "https://firebaseinstallations.googleapis.com",
+        ],
+
+        imgSrc: [
+          "'self'",
+          "data:",
+          "blob:",
+          "https://www.gstatic.com",
+          "https://firebasestorage.googleapis.com",
+        ],
+
+        styleSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://fonts.googleapis.com",
+        ],
+
+        fontSrc: [
+          "'self'",
+          "https://fonts.gstatic.com",
+        ],
+
+        frameSrc: [
+          "https://*.firebaseapp.com",
+          "https://accounts.google.com",
+        ],
+      },
+    },
+  })
+);
+
+
 app.use(cors({ origin: env.CORS_ORIGIN }));
 app.use(express.json());
 app.use(morgan("dev"));
